@@ -22,4 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/.idea
+### Code ###
+# Visual Studio Code - https://code.visualstudio.com/
+.settings/
+.vscode/
+
+### Webstorm ###
+.idea/
