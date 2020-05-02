@@ -1,15 +1,34 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './styles/App.scss';
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 
+import {getPosts} from "./api/api";
+
+
 function App() {
+    const [posts, setPosts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const rnd1 = Math.floor(Math.random() * (posts.length));
+    const rnd2 = Math.floor(Math.random() * (posts.length));
+    const rnd3 = Math.floor(Math.random() * (posts.length));
+
+    useEffect(() => {
+        getPosts(setPosts, setIsLoading);
+
+    }, []);
+
     return (
         <>
             <Header/>
-            <Main/>
-            <Footer/>
+            {
+                isLoading ? <h1>Loading...</h1> : <>
+                    <Main posts={posts}/>
+                    <Footer posts={[posts[rnd1], posts[rnd2], posts[rnd3]]}/>
+                </>
+            }
+
         </>
     );
 }

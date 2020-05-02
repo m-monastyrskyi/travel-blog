@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer = ({posts}) => {
     return (
         <footer className="footer">
             <div className="container">
@@ -10,45 +10,25 @@ const Footer = () => {
                             <h4>Random posts</h4>
                         </div>
 
-                        <div className="random-post">
-                            <div className="random-post__img">
-                                <img src="https://placeimg.com/80/80/nature"/>
-                            </div>
-                            <div className="random-post__info">
-                                <div className="random-post__date">
-                                    <h4>May 1, 2020</h4>
-                                </div>
-                                <div className="random-post__title">
-                                    <h3>The way I see it, every life is a pile of good things</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="random-post">
-                            <div className="random-post__img">
-                                <img src="https://placeimg.com/80/80/nature"/>
-                            </div>
-                            <div className="random-post__info">
-                                <div className="random-post__date">
-                                    <h4>May 1, 2020</h4>
-                                </div>
-                                <div className="random-post__title">
-                                    <h3>The way I see it, every life is a pile of good things</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="random-post">
-                            <div className="random-post__img">
-                                <img src="https://placeimg.com/80/80/nature"/>
-                            </div>
-                            <div className="random-post__info">
-                                <div className="random-post__date">
-                                    <h4>May 1, 2020</h4>
-                                </div>
-                                <div className="random-post__title">
-                                    <h3>The way I see it, every life is a pile of good things</h3>
-                                </div>
-                            </div>
-                        </div>
+                        {
+                            posts.map(el=>{
+                                return (
+                                    <div className="random-post" key={el.id}>
+                                        <div className="random-post__img">
+                                            <img src={el.imageThumb}/>
+                                        </div>
+                                        <div className="random-post__info">
+                                            <div className="random-post__date">
+                                                <h4>{el.datePublished}</h4>
+                                            </div>
+                                            <div className="random-post__title">
+                                                <h3>{el.title}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
 
                     </div>
 
