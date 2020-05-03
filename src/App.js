@@ -29,7 +29,7 @@ function App() {
                 <Switch>
                     <Route exact path="/">
                         {
-                            isLoading ? <h1 className="container">Loading...</h1> : <Main posts={posts}/>
+                            isLoading ? <h1 className="container">Loading main...</h1> : <Main posts={posts}/>
                         }
                     </Route>
                     <Route exact path="/contact">
@@ -37,7 +37,7 @@ function App() {
                     </Route>
                 </Switch>
                 {
-                    isLoading ? <h1 className="container">Loading...</h1> : <Footer posts={[posts[rnd1], posts[rnd2], posts[rnd3]]}/>
+                    isLoading ? <h1 className="container">Loading footer...</h1> : <Footer posts={[posts[rnd1], posts[rnd2], posts[rnd3]]}/>
                 }
             </div>
         </Router>
