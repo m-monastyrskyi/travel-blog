@@ -11,9 +11,9 @@ const Footer = ({posts}) => {
                         </div>
 
                         {
-                            posts.map(el=>{
+                            posts.map((el, index) => {
                                 return (
-                                    <div className="random-post" key={el.id}>
+                                    <div className="random-post" key={index}>
                                         <div className="random-post__img">
                                             <img src={el.imageThumb}/>
                                         </div>

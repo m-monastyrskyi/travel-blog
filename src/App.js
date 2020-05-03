@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 
 import {getPosts} from "./api/api";
 import Contact from "./components/Contact";
+import NotFound from "./components/NotFound";
+import SinglePost from "./components/SinglePost";
 
 
 function App() {
@@ -24,7 +26,7 @@ function App() {
     return (
 
         <Router>
-            <div>
+            <>
                 <Header/>
                 <Switch>
                     <Route exact path="/">
@@ -35,11 +37,14 @@ function App() {
                     <Route exact path="/contact">
                         <Contact/>
                     </Route>
+                    <Route path="/post/:id" component={SinglePost} />
+                    <Route path="*" component={NotFound}/>
                 </Switch>
                 {
-                    isLoading ? <h1 className="container">Loading footer...</h1> : <Footer posts={[posts[rnd1], posts[rnd2], posts[rnd3]]}/>
+                    isLoading ? <h1 className="container">Loading footer...</h1> :
+                        <Footer posts={[posts[rnd1], posts[rnd2], posts[rnd3]]}/>
                 }
-            </div>
+            </>
         </Router>
 
 
