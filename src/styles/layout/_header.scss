@@ -3,6 +3,7 @@
 
   &__logo {
     height: 100px;
+
     img {
       display: block;
       height: 100%;
@@ -26,6 +27,11 @@
 
   a {
     text-decoration: none;
-    color: #212628
+    color: #212628;
+    transition: .1s linear;
+
+    &:hover {
+      border-bottom: 3px solid #232527;
+    }
   }
 }
