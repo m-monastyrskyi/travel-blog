@@ -23,7 +23,7 @@ function App() {
         <>
             <Header/>
             {
-                isLoading ? <h1>Loading...</h1> : <>
+                isLoading ? <h1 className="container">Loading...</h1> : <>
                     <Main posts={posts}/>
                     <Footer posts={[posts[rnd1], posts[rnd2], posts[rnd3]]}/>
                 </>
