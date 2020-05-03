@@ -67,7 +67,7 @@ const Footer = ({posts}) => {
                             </h4>
                             <form onSubmit={e => e.preventDefault()}>
                                 <input className="subscribe__email" type="email" placeholder="Email address"/>
-                                <input type="submit" className="subscribe__submit" value="Subscribe"/>
+                                <input type="submit" className="btn__submit" value="Subscribe"/>
                             </form>
                         </div>
                     </div>

@@ -1,0 +1,47 @@
+.contact {
+  max-width: 720px;
+  margin: 10vh auto;
+
+  &__title {
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  &__subtitle {
+    margin: 50px 0 20px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  &__form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  &__input {
+    margin: 20px 0;
+    width: 100%;
+    display: block;
+    padding: 1em;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    outline: none;
+    background-color: #ffffff;
+    font-size: 16px;
+    color: #5b5d60;
+    transition: border .2s ease-in-out;
+  }
+
+  &__input::placeholder {
+    color: #a09f9f;
+  }
+
+  &__input:focus, &__input:active {
+    border: 1px solid #232527;
+  }
+
+  &__submit {
+
+  }
+}
