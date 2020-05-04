@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const Footer = ({posts}) => {
     return (
@@ -15,14 +16,20 @@ const Footer = ({posts}) => {
                                 return (
                                     <div className="random-post" key={index}>
                                         <div className="random-post__img">
-                                            <img src={el.imageThumb}/>
+                                            <Link to={'/post/' + el.id}>
+                                                <img src={el.imageThumb}  alt="some random stuff"/>
+                                            </Link>
                                         </div>
                                         <div className="random-post__info">
                                             <div className="random-post__date">
                                                 <h4>{el.datePublished}</h4>
                                             </div>
                                             <div className="random-post__title">
-                                                <h3>{el.title}</h3>
+                                                <Link to={'/post/' + el.id}>
+                                                    <h3>
+                                                        {el.title}
+                                                    </h3>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>

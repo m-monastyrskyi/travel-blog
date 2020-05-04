@@ -1,10 +1,13 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
-const ArticleShort = ({title,subtitle,category,datePublished, imageThumb}) => {
+const ArticleShort = ({title, subtitle, category, datePublished, imageThumb, id}) => {
     return (
         <article className="article">
             <div className="article__thumb">
-                <img src={imageThumb} alt="thumb image"/>
+                <Link to={`/post/` + id}>
+                    <img src={imageThumb} alt="thumb image"/>
+                </Link>
             </div>
             <div className="article__info">
                 <div className="article__meta">
@@ -16,7 +19,9 @@ const ArticleShort = ({title,subtitle,category,datePublished, imageThumb}) => {
                                     </span>
                 </div>
                 <div className="article__title">
-                    <h2>{title}</h2>
+                    <Link to={'/post/' + id}>
+                        <h2>{title}</h2>
+                    </Link>
                 </div>
                 <div className="article__subtitle">
                     <p>{subtitle}</p>

@@ -31,7 +31,7 @@ function App() {
                 <Switch>
                     <Route exact path="/">
                         {
-                            isLoading ? <h1 className="container">Loading main...</h1> : <Main posts={posts}/>
+                            isLoading ? <h1 className="container">Loading main...</h1> : <Main posts={posts} />
                         }
                     </Route>
                     <Route exact path="/contact">

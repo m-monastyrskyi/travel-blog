@@ -1,6 +1,7 @@
 import React from 'react';
 import ArticleShort from "./ArticleShort";
 
+
 const Main = ({posts}) => {
 
 
@@ -16,6 +17,7 @@ const Main = ({posts}) => {
                             category={el.category}
                             datePublished={el.datePublished}
                             imageThumb={el.imageThumb}
+                            id={el.id}
                         />)
                     }
                 </div>

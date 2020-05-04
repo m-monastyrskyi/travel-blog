@@ -19,7 +19,7 @@
   transition: transform .2s linear;
   box-shadow: none;
 
-  &:hover{
+  &:hover {
     transform: scale(1.01);
   }
 
@@ -65,6 +65,10 @@
     letter-spacing: 1px;
     font-weight: 700;
 
+    a {
+      text-decoration: none;
+      color: #232527;
+    }
   }
 
   &__subtitle {
