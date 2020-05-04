@@ -1,9 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import { Route , useRouteMatch} from "react-router-dom";
 
-const SinglePost = (props) => {
+
+const SinglePost = ({posts}) => {
+
+    const id = useRouteMatch("/post/:id").params.id;
+    console.log(id);
+    console.log(posts);
+
     return (
         <div className="container">
-            <h1>Here will be post by id: {props.match.params.id}</h1>
+            <h1>Post id: {id}</h1>
+            {
+                posts.length > 0 && <h2>{posts[id].title}</h2>
+            }
         </div>
     );
 };

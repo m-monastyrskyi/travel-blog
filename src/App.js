@@ -37,7 +37,13 @@ function App() {
                     <Route exact path="/contact">
                         <Contact/>
                     </Route>
-                    <Route path="/post/:id" component={SinglePost} />
+
+                    <Route path="/post/:id" >
+                        <SinglePost posts={posts} />
+                    </Route>
+
+
+
                     <Route path="*" component={NotFound}/>
                 </Switch>
                 {
@@ -46,18 +52,6 @@ function App() {
                 }
             </>
         </Router>
-
-
-        // <>
-        //     <Header/>
-        //     {
-        //         isLoading ? <h1 className="container">Loading...</h1> : <>
-        //             <Main posts={posts}/>
-        //             <Footer posts={[posts[rnd1], posts[rnd2], posts[rnd3]]}/>
-        //         </>
-        //     }
-        //
-        // </>
     );
 }
 
