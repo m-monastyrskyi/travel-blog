@@ -3,13 +3,18 @@ import {useRouteMatch} from "react-router-dom";
 import {getSinglePostById} from "../api/api";
 
 const SinglePost = ({ posts }) => { //, match: {params: {id} }
+
     const id = useRouteMatch("/post/:id").params.id;
-//console.log(match);
+
     if (posts.length === 0) {
         return <h1 className="container">Loading...</h1>
     }
+
     const article = getSinglePostById(id, posts);
 
+
+        window.scrollTo(0, 0);
+    
     if (!article) {
         return <h1 className="container">Loading article...</h1>
     } else {
