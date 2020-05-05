@@ -23,8 +23,13 @@ const SinglePost = ({posts}) => { //, match: {params: {id} }
     } else {
         if (article === 404) {
             return <h1 className="container"
-                       style={{margin: "100px auto", textAlign: "center", fontSize: "30px", fontWeight: "900"}}>Article
-                not found</h1>
+                       style={{
+                           margin: "100px auto",
+                           textAlign: "center",
+                           fontSize: "30px",
+                           fontWeight: "900"
+                       }}>Article not found
+            </h1>
         } else {
             return (
                 <div className="container">
