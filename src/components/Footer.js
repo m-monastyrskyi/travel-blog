@@ -45,17 +45,17 @@ const Footer = ({posts}) => {
                         </div>
                         <div className="insta-pics">
                             <ul className="instafeed">
-                                <li className="instafeed__item"><img src="https://placeimg.com/110/120/nature"/>
+                                <li className="instafeed__item"><img src="https://placeimg.com/110/120/nature" alt="some alt text"/>
                                 </li>
-                                <li className="instafeed__item"><img src="https://placeimg.com/121/120/nature"/>
+                                <li className="instafeed__item"><img src="https://placeimg.com/121/120/nature" alt="some alt text"/>
                                 </li>
-                                <li className="instafeed__item"><img src="https://placeimg.com/119/118/nature"/>
+                                <li className="instafeed__item"><img src="https://placeimg.com/119/118/nature" alt="some alt text"/>
                                 </li>
-                                <li className="instafeed__item"><img src="https://placeimg.com/120/122/nature"/>
+                                <li className="instafeed__item"><img src="https://placeimg.com/120/122/nature" alt="some alt text"/>
                                 </li>
-                                <li className="instafeed__item"><img src="https://placeimg.com/120/121/nature"/>
+                                <li className="instafeed__item"><img src="https://placeimg.com/120/121/nature" alt="some alt text"/>
                                 </li>
-                                <li className="instafeed__item"><img src="https://placeimg.com/123/117/nature"/>
+                                <li className="instafeed__item"><img src="https://placeimg.com/123/117/nature" alt="some alt text"/>
                                 </li>
                             </ul>
                         </div>

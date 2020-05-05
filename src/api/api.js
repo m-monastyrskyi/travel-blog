@@ -2,7 +2,7 @@ import React from 'react';
 
 const getPosts = (postsSetter, loadingSetter) => {
     //const apiUrl = "https://api.jsonbin.io/v3/b/5ea9904e07d49135ba47ba43"; //OLD
-    const apiUrl = "https://api.jsonbin.io/v3/b/5eb01316a47fdd6af15d535d";
+    const apiUrl = "https://api.jsonbin.io/v3/b/5eb01316a47fdd6af15d535d/2";
     fetch(apiUrl, {
         method: 'GET',
         headers: {

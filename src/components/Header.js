@@ -14,8 +14,8 @@ const Header = () => {
                     </div>
                     <nav className="header__menu">
                         <ul className="nav__list">
-                            <li className="nav__item"><NavLink to="/">Home</NavLink></li>
-                            <li className="nav__item"><NavLink to="/contact">Contact</NavLink></li>
+                            <li className="nav__item"><NavLink exact activeClassName="isActive" to="/">Home</NavLink></li>
+                            <li className="nav__item"><NavLink exact activeClassName="isActive" to="/contact">Contact</NavLink></li>
                             <li className="nav__item"><a href="#">Login</a></li>
                         </ul>
                     </nav>

@@ -31,24 +31,22 @@ function App() {
                 <Switch>
                     <Route exact path="/">
                         {
-                            isLoading ? <h1 className="container">Loading main...</h1> : <Main posts={posts} />
+                            isLoading ? <div className="loading"/> : <Main posts={posts}/>
                         }
                     </Route>
                     <Route exact path="/contact">
                         <Contact/>
                     </Route>
 
-                    <Route path="/post/:id" >
-                        <SinglePost posts={posts} />
+                    <Route path="/post/:id">
+                        <SinglePost posts={posts}/>
                     </Route>
-
 
 
                     <Route path="*" component={NotFound}/>
                 </Switch>
                 {
-                    isLoading ? <h1 className="container">Loading footer...</h1> :
-                        <Footer posts={[posts[rnd1], posts[rnd2], posts[rnd3]]}/>
+                    !isLoading && <Footer posts={[posts[rnd1], posts[rnd2], posts[rnd3]]}/>
                 }
             </>
         </Router>

@@ -54,3 +54,18 @@ body {
   margin: 100px auto;
   text-align: center;
 }
+.loading {
+  width: 100px;
+  height: 100px;
+  margin: 30vh auto;
+  border: 3px solid rgba(#000, .5);
+  border-radius: 50%;
+  border-right-color: black;
+  animation: loading 0.7s 0s infinite linear;
+}
+
+@keyframes loading {
+  100% {
+    transform: rotate(1turn);
+  }
+}
