@@ -4,6 +4,7 @@ import './styles/App.scss';
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
+import LoginForm from "./components/LoginForm";
 
 import {getPosts} from "./api/api";
 import Contact from "./components/Contact";
@@ -14,6 +15,9 @@ import SinglePost from "./components/SinglePost";
 function App() {
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [modalLogin, setModalLogin] = useState(false);
+
     const rnd1 = Math.floor(Math.random() * (posts.length));
     const rnd2 = Math.floor(Math.random() * (posts.length));
     const rnd3 = Math.floor(Math.random() * (posts.length));
@@ -23,11 +27,14 @@ function App() {
 
     }, []);
 
+    const modalLoginSwitch = () => {
+        setModalLogin(prev => !prev);
+    }
     return (
 
         <Router>
             <>
-                <Header/>
+                <Header showModalLogin={modalLoginSwitch} />
                 <Switch>
                     <Route exact path="/">
                         {
@@ -48,8 +55,14 @@ function App() {
                 {
                     !isLoading && <Footer posts={[posts[rnd1], posts[rnd2], posts[rnd3]]}/>
                 }
+                {
+                    modalLogin && <LoginForm closeModal={modalLoginSwitch}/>
+                }
+
             </>
+
         </Router>
+
     );
 }
 

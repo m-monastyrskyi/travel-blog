@@ -20,7 +20,6 @@
   box-shadow: none;
 
 
-
   &__meta {
     display: flex;
     margin: 20px 0;
@@ -53,10 +52,11 @@
   &__thumb {
     overflow: hidden;
     border-radius: 10px;
+
     img {
       width: 100%;
       height: 100%;
-
+      display: block;
       transition: transform .2s linear;
 
       &:hover {
