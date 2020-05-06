@@ -2,9 +2,14 @@
   .main {
     margin: 0;
   }
-  .article, .widget {
+   .widget {
     width: 48%;
     margin: 40px 0;
+  }
+  .article__wrapper {
+    margin: 40px 0;
+    grid-template-columns: repeat(auto-fill, 48%);
+    grid-gap: 20px;
   }
   .single-post__content {
     width: 100%;
@@ -23,9 +28,13 @@
   .main {
     margin: 0;
   }
-  .article, .widget {
+  .widget {
     width: 100%;
     margin: 30px 0;
+  }
+  .article__wrapper {
+    margin: 40px 0;
+    grid-template-columns: repeat(auto-fill, 100%);
   }
 
   .login-modal {

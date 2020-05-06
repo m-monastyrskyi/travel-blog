@@ -4,7 +4,7 @@ import ReactHtmlParser from 'react-html-parser';
 
 import {getSinglePostById} from "../api/api";
 
-const SinglePost = ({posts}) => { //, match: {params: {id} }
+const SinglePost = ({posts}) => {
     const [article, setArticle] = useState(null);
     const id = useRouteMatch("/post/:id").params.id;
 

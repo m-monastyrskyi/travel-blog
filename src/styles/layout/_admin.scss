@@ -1,0 +1,40 @@
+.table {
+  margin: 10vh 0;
+  width: 100%;
+
+  tr, td, th {
+    border: 1px solid black;
+  }
+
+  td {
+    padding: 10px;
+    vertical-align: middle;
+  }
+
+  &__row {
+  }
+
+  &__index {
+    text-align: center;
+  }
+
+  &__title {
+
+  }
+
+  &__actions {
+    width: 110px;
+    a {
+      color: black;
+    }
+    a:hover {
+      color: #a0a1a7;
+      //border-bottom: 1px solid #000000;
+    }
+  }
+
+  &__icon {
+    cursor: pointer;
+    margin: 0 5px;
+  }
+}

@@ -1,7 +1,11 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {getRandomNumbersForFooter} from "../api/api";
 
 const Footer = ({posts}) => {
+    const rnd = getRandomNumbersForFooter(posts.length);
+    const rndPosts = [posts[rnd[0]], posts[rnd[1]] ,posts[rnd[2]] ]
+
     return (
         <footer className="footer">
             <div className="container">
@@ -12,12 +16,12 @@ const Footer = ({posts}) => {
                         </div>
 
                         {
-                            posts.map((el, index) => {
+                            rndPosts.map((el, index) => {
                                 return (
                                     <div className="random-post" key={index}>
                                         <div className="random-post__img">
                                             <Link to={'/post/' + el.id}>
-                                                <img src={el.imageThumb}  alt="some random stuff"/>
+                                                <img src={el.imageThumb} alt="some random stuff"/>
                                             </Link>
                                         </div>
                                         <div className="random-post__info">
@@ -45,17 +49,23 @@ const Footer = ({posts}) => {
                         </div>
                         <div className="insta-pics">
                             <ul className="instafeed">
-                                <li className="instafeed__item"><img src="https://placeimg.com/110/120/nature" alt="some alt text"/>
+                                <li className="instafeed__item"><img src="https://placeimg.com/110/120/nature"
+                                                                     alt="some alt text"/>
                                 </li>
-                                <li className="instafeed__item"><img src="https://placeimg.com/121/120/nature" alt="some alt text"/>
+                                <li className="instafeed__item"><img src="https://placeimg.com/121/120/nature"
+                                                                     alt="some alt text"/>
                                 </li>
-                                <li className="instafeed__item"><img src="https://placeimg.com/119/118/nature" alt="some alt text"/>
+                                <li className="instafeed__item"><img src="https://placeimg.com/119/118/nature"
+                                                                     alt="some alt text"/>
                                 </li>
-                                <li className="instafeed__item"><img src="https://placeimg.com/120/122/nature" alt="some alt text"/>
+                                <li className="instafeed__item"><img src="https://placeimg.com/120/122/nature"
+                                                                     alt="some alt text"/>
                                 </li>
-                                <li className="instafeed__item"><img src="https://placeimg.com/120/121/nature" alt="some alt text"/>
+                                <li className="instafeed__item"><img src="https://placeimg.com/120/121/nature"
+                                                                     alt="some alt text"/>
                                 </li>
-                                <li className="instafeed__item"><img src="https://placeimg.com/123/117/nature" alt="some alt text"/>
+                                <li className="instafeed__item"><img src="https://placeimg.com/123/117/nature"
+                                                                     alt="some alt text"/>
                                 </li>
                             </ul>
                         </div>

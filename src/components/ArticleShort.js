@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
 
 const ArticleShort = ({title, subtitle, category, datePublished, imageThumb, id}) => {
+
     return (
         <article className="article">
             <div className="article__thumb">

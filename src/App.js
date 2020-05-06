@@ -12,17 +12,12 @@ import NotFound from "./components/NotFound";
 import SinglePost from "./components/SinglePost";
 import Admin from "./components/Admin";
 
-import {getRandomNumbersForFooter} from "./api/api";
 
 function App() {
     const [posts, isLoading] = useGetPosts();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [modalLogin, setModalLogin] = useState(false);
-    const [rnd, setRnd] = useState([])
-
-    useEffect(() => {
-        setRnd(getRandomNumbersForFooter(posts.length));
-    }, [posts]);
+  //  const [reRender, setRerender] = useState(false);
 
     const modalLoginSwitch = () => {
         setModalLogin(prev => !prev);
@@ -49,7 +44,7 @@ function App() {
                     <Route path="*" component={NotFound}/>
                 </Switch>
                 {
-                    rnd.length > 1 && <Footer posts={[posts[rnd[0]], posts[rnd[1]], posts[rnd[2]]]}/>
+                    !isLoading && <Footer posts={posts}/>
                 }
                 {
                     modalLogin && <LoginForm closeModal={modalLoginSwitch}/>
