@@ -6,26 +6,22 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 import LoginForm from "./components/LoginForm";
 
-import {getPosts} from "./api/api";
+import useGetPosts from "./hooks/useGetPosts"
 import Contact from "./components/Contact";
 import NotFound from "./components/NotFound";
 import SinglePost from "./components/SinglePost";
 
+import {getRandomNumbersForFooter} from "./api/api";
 
 function App() {
-    const [posts, setPosts] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [posts, isLoading] = useGetPosts();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [modalLogin, setModalLogin] = useState(false);
-
-    const rnd1 = Math.floor(Math.random() * (posts.length));
-    const rnd2 = Math.floor(Math.random() * (posts.length));
-    const rnd3 = Math.floor(Math.random() * (posts.length));
+    const [rnd, setRnd] = useState([])
 
     useEffect(() => {
-        getPosts(setPosts, setIsLoading);
-
-    }, []);
+       setRnd(getRandomNumbersForFooter(posts.length));
+    }, [posts]);
 
     const modalLoginSwitch = () => {
         setModalLogin(prev => !prev);
@@ -34,7 +30,7 @@ function App() {
 
         <Router>
             <>
-                <Header showModalLogin={modalLoginSwitch} />
+                <Header showModalLogin={modalLoginSwitch}/>
                 <Switch>
                     <Route exact path="/">
                         {
@@ -53,7 +49,7 @@ function App() {
                     <Route path="*" component={NotFound}/>
                 </Switch>
                 {
-                    !isLoading && <Footer posts={[posts[rnd1], posts[rnd2], posts[rnd3]]}/>
+                    rnd.length > 1 && <Footer posts={[posts[rnd[0]], posts[rnd[1]], posts[rnd[2]]]}/>
                 }
                 {
                     modalLogin && <LoginForm closeModal={modalLoginSwitch}/>

@@ -9,7 +9,6 @@ const SinglePost = ({posts}) => { //, match: {params: {id} }
     const id = useRouteMatch("/post/:id").params.id;
 
     useEffect(() => {
-//      const article = getSinglePostById(id, posts);
         setArticle(getSinglePostById(id, posts));
         window.scrollTo(0, 0);
     })
