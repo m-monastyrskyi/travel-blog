@@ -9,5 +9,40 @@
 @import "layout/single-post";
 
 
+.table {
+  margin: 10vh 0;
+  width: 100%;
+
+  tr, td, th {
+    border: 1px solid black;
+  }
+
+  td {
+    padding: 10px;
+    vertical-align: middle;
+
+  }
+
+  &__row {
+  }
+
+  &__index {
+    text-align: center;
+  }
+
+  &__title {
+
+  }
+
+  &__actions {
+    width: 110px;
+  }
+
+  &__icon {
+    cursor: pointer;
+    margin: 0 5px;
+  }
+}
+
 @import "generic/modalLogin";
 @import "generic/media";

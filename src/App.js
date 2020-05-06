@@ -6,10 +6,11 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 import LoginForm from "./components/LoginForm";
 
-import useGetPosts from "./hooks/useGetPosts"
+import useGetPosts from "./hooks/useGetPosts";
 import Contact from "./components/Contact";
 import NotFound from "./components/NotFound";
 import SinglePost from "./components/SinglePost";
+import Admin from "./components/Admin";
 
 import {getRandomNumbersForFooter} from "./api/api";
 
@@ -20,7 +21,7 @@ function App() {
     const [rnd, setRnd] = useState([])
 
     useEffect(() => {
-       setRnd(getRandomNumbersForFooter(posts.length));
+        setRnd(getRandomNumbersForFooter(posts.length));
     }, [posts]);
 
     const modalLoginSwitch = () => {
@@ -37,14 +38,13 @@ function App() {
                             isLoading ? <div className="loading"/> : <Main posts={posts}/>
                         }
                     </Route>
-                    <Route exact path="/contact">
-                        <Contact/>
-                    </Route>
+                    <Route exact path="/contact" component={Contact} />
 
                     <Route path="/post/:id">
                         <SinglePost posts={posts}/>
                     </Route>
 
+                    <Route exact path="/admin" component={Admin} />
 
                     <Route path="*" component={NotFound}/>
                 </Switch>

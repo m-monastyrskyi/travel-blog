@@ -1,19 +1,22 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
+import { useHistory } from "react-router-dom";
 
 const LoginForm = ({closeModal}) => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
+    const history = useHistory();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setLogin('');
-        setPassword('');
+        // setLogin('');
+        // setPassword('');
+        history.push("/admin");
+        closeModal();
     }
 
     const closeIt = (e) => {
         if (typeof closeModal === 'function' && e.target.className === "login-container") {
             closeModal();
-
         }
     }
 
