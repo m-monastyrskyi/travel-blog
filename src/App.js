@@ -11,13 +11,14 @@ import Contact from "./components/Contact";
 import NotFound from "./components/NotFound";
 import SinglePost from "./components/SinglePost";
 import Admin from "./components/Admin";
+import ArticleAdd from "./components/ArticleAdd";
+import ArticleEdit from "./components/ArticleEdit";
 
 
 function App() {
     const [posts, isLoading] = useGetPosts();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [modalLogin, setModalLogin] = useState(false);
-  //  const [reRender, setRerender] = useState(false);
 
     const modalLoginSwitch = () => {
         setModalLogin(prev => !prev);
@@ -40,6 +41,8 @@ function App() {
                     </Route>
 
                     <Route exact path="/admin" component={Admin} />
+                    <Route exact path="/admin/add" component={ArticleAdd} />
+                    <Route path="/admin/edit/:id" component={ArticleEdit}/>
 
                     <Route path="*" component={NotFound}/>
                 </Switch>

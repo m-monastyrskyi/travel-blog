@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import fire from "../data/firebseConfig";
+
 
 const generateRandomId = () => {
     return Math.random().toString(36).substr(2, 9);
@@ -26,8 +28,26 @@ const getRandomNumbersForFooter = postsCount => {
     return result;
 }
 
+const addNewArticle = (article) => {
+    let tmp = [];
+        const ref = fire.database().ref('articles');
+
+        ref.on("value", function (snapshot) {
+            //setPosts(snapshot.val());
+            tmp = [...snapshot.val(), article];
+        }, function (error) {
+            console.log("Error: " + error.code);
+        });
+        console.log(tmp);
+        ref.set(tmp);
+
+
+
+}
+
 export {
     getRandomNumbersForFooter,
     generateRandomId,
-    getSinglePostById
+    getSinglePostById,
+    addNewArticle
 }

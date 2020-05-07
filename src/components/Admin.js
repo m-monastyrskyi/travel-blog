@@ -28,14 +28,13 @@ const Admin = () => {
             content: "Hello from Poland and welcome",
             datePublished: "May 4, 2020",
             id: generateRandomId(),
-            imageFull: "https://firebasestorage.googleapis.com/v0/b/testblog-dcad8.appspot.com/o/images%2F1200x600%2F01-min.jpg?alt=media&token=be7c3dfb-db3f-4877-affb-213b40a91c89",
-            imageThumb: "https://firebasestorage.googleapis.com/v0/b/testblog-dcad8.appspot.com/o/images%2F400x300%2F01-min.jpg?alt=media&token=90e14050-dc96-4604-a934-e3cfce4ac6aa",
+            imageFull: "https://firebasestorage.googleapis.com/v0/b/newblog-e4168.appspot.com/o/backup%2F1200x600%2Fimg-06.jpg?alt=media&token=0c935cb2-9981-4ada-99c6-3bbe956796ee",
+            imageThumb: "https://firebasestorage.googleapis.com/v0/b/newblog-e4168.appspot.com/o/backup%2F400x300%2Fimg-03.jpg?alt=media&token=3bbb8ca0-e5cb-42a4-856c-6a657a4125df",
             subtitle: "some subtitle text from the future",
             title: "Hello, World!"
         }
         const ref = fire.database().ref('articles');
         ref.set([...posts, newArticle]);
-        console.log("hello");
     }
 
     const btnRestore = () => {
@@ -52,7 +51,6 @@ const Admin = () => {
 
     return (
         <div className="container">
-
             <table className="table">
                 <tbody>
                 {
@@ -79,6 +77,7 @@ const Admin = () => {
                 }
                 </tbody>
             </table>
+            <h2><Link to="/admin/add">Add article</Link></h2>
             <span>Something went wrong? Restore articles from backup</span>
             <button style={{padding: "5px 20px", margin: "20px"}} onClick={btnRestore}>Restore from backup</button>
             <button style={{padding: "5px 20px", margin: "20px"}} onClick={btnAddTestArticle}>Test add article</button>
