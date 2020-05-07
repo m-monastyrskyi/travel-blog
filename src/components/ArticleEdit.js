@@ -6,6 +6,7 @@ import {getSinglePostById, updateSingleArticle} from "../api/api";
 const ArticleEdit = ({posts}) => {
     const id = useRouteMatch("/admin/edit/:id").params.id;
     const [article, setArticle] = useState(null);
+    document.title='Edit article';
 
     useEffect(() => {
         setArticle(getSinglePostById(id, posts));

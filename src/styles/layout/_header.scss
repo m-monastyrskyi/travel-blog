@@ -1,5 +1,10 @@
 .header {
   border-bottom: 1px solid #f0f0f0;
+  background-color: white;
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  left:0;
 
   &__logo {
     height: 100px;
@@ -8,6 +13,7 @@
       display: block;
       height: 100%;
       margin-top: 10px;
+
     }
   }
 

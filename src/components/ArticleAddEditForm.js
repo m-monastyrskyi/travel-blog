@@ -64,7 +64,7 @@ const ArticleAddEditForm = ({article, handlePost}) => {
                 <ReactQuill theme="snow" style={{height: "300px", padding: "0 0 50px 0"}} value={content}
                             onChange={setContent}/>
 
-                <textarea value={content} readOnly/>
+                <textarea value={content} />
 
                 <div className="upload-block">
                     <input type="text" placeholder="Full image url" required value={fullImgUrl} onChange={e => {

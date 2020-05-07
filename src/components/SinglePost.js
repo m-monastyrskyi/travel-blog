@@ -30,6 +30,7 @@ const SinglePost = ({posts}) => {
                        }}>Article not found
             </h1>
         } else {
+            document.title=article.title;
             return (
                 <div className="container">
                     <div className="single-post">

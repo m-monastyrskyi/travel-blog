@@ -4,7 +4,7 @@ import {addNewArticle} from "../api/api";
 
 
 const ArticleAdd = () => {
-
+    document.title = 'Add article';
     const addArticle = (post) => {
         addNewArticle(post);
     }

@@ -8,7 +8,6 @@ const UploadImage = ({imgSetter}) => {
     const handleChange = (e) => {
         if (e.target.files[0]) {
             setImgFile(e.target.files[0]);
-            console.log(e.target.files[0]);
         }
     }
     const handleUpload = () => {
@@ -24,7 +23,6 @@ const UploadImage = ({imgSetter}) => {
             },
             () => {
                 fire.storage().ref('uploads').child(imgFile.name).getDownloadURL().then(url => {
-                    console.log(url);
                     imgSetter(url);
                 })
             });

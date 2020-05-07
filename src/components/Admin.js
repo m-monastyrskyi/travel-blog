@@ -14,8 +14,9 @@ import {generateRandomId} from "../api/api";
 const Admin = () => {
     const [posts, isLoading] = useGetPosts();
     const history = useHistory();
+    document.title = 'Admin';
 
-    useEffect(() => {
+        useEffect(() => {
 
     }, [isLoading]);
     if (isLoading) {
@@ -79,10 +80,12 @@ const Admin = () => {
                 }
                 </tbody>
             </table>
-            <h2><Link to="/admin/add">Add article</Link></h2>
-            <span>Something went wrong? Restore articles from backup</span>
-            <button style={{padding: "5px 20px", margin: "20px"}} onClick={btnRestore}>Restore from backup</button>
-            <button style={{padding: "5px 20px", margin: "20px"}} onClick={btnAddTestArticle}>Test add article</button>
+            <Link className="add-article__btn" to="/admin/add">Add article</Link>
+            <div className="went-wrong">
+                <span>Something went wrong? Restore articles from backup</span>
+                <button className="add-article__btn" onClick={btnRestore}>Restore from backup</button>
+            </div>
+            {/*<button style={{padding: "5px 20px", margin: "20px"}} onClick={btnAddTestArticle}>Test add article</button>*/}
         </div>
     );
 

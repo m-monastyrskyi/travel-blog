@@ -1,5 +1,5 @@
 .table {
-  margin: 10vh 0;
+  margin: 10vh 0 5vh;
   width: 100%;
 
   tr, td, th {
@@ -24,17 +24,42 @@
 
   &__actions {
     width: 110px;
+
     a {
       color: black;
     }
+
     a:hover {
       color: #a0a1a7;
-      //border-bottom: 1px solid #000000;
     }
   }
 
   &__icon {
     cursor: pointer;
     margin: 0 5px;
+  }
+}
+
+.add-article__btn {
+  padding: 10px 20px;
+  background-color: #eaeaea;
+  border-radius: 5px;
+  border: 1px solid #757577;
+    margin: 20px 0;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: color .2s ease-in-out, background-color .2s ease-in-out;
+
+  &:hover {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+}
+.went-wrong {
+  display: block;
+  span {
+    margin: 10px;
   }
 }

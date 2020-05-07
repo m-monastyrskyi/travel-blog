@@ -1,6 +1,7 @@
 import React from 'react';
 
 const NotFound = () => {
+    document.title = 'Not found - Just travel blog';
     return (
         <div className="container">
             <div className="notfound">
