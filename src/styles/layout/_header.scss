@@ -7,12 +7,15 @@
   left:0;
 
   &__logo {
-    height: 100px;
+    height: 7vw;
+    max-height: 80px;
+    min-height: 50px;
 
     img {
       display: block;
-      height: 100%;
-      margin-top: 10px;
+      height: 120%;
+     // margin-top: 10px;
+
 
     }
   }
