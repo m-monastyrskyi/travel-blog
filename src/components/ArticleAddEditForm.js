@@ -2,21 +2,20 @@ import React, {useState, useEffect} from 'react';
 import {generateRandomId} from "../api/api";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import UploadImage from "./UploadImage";
 
 
-const ArticleAddEditForm = (props) => {
-
-    const [id, setId] = useState(props.id || generateRandomId);
-    const [date, setDate] = useState("");
-    const [category, setCategory] = useState("");
-    const [title, setTitle] = useState("");
-    const [subtitle, setSubtitle] = useState("");
-    const [content, setContent] = useState("");
-    const [fullImgUrl, setFullImgUrl] = useState("");
-    const [thumbImgUrl, setThumbImgUrl] = useState("");
+const ArticleAddEditForm = ({article, handlePost}) => {
+    const [id, setId] = useState(article ? article.id : generateRandomId());
+    const [date, setDate] = useState(article ? article.datePublished : "");
+    const [category, setCategory] = useState(article ? article.category : "");
+    const [title, setTitle] = useState(article ? article.title : "");
+    const [subtitle, setSubtitle] = useState(article ? article.subtitle : "");
+    const [content, setContent] = useState(article ? article.content : "");
+    const [fullImgUrl, setFullImgUrl] = useState(article ? article.imageFull : "");
+    const [thumbImgUrl, setThumbImgUrl] = useState(article ? article.imageThumb : "");
 
     const [errors, setErrors] = useState('');
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -33,7 +32,8 @@ const ArticleAddEditForm = (props) => {
                 imageThumb: thumbImgUrl
             };
             setErrors('');
-            props.handlePost(post);
+            handlePost(post);
+            setErrors('Post updated');
 
         } else {
             setErrors("Check inputs! (Probably date)");
@@ -45,7 +45,7 @@ const ArticleAddEditForm = (props) => {
             {
                 errors && <p style={{color: "red"}}>{errors}</p>
             }
-            <form className="article-form" onSubmit={handleSubmit}>
+            <div className="article-form">
                 <input type="text" placeholder="id" value={id} disabled/>
                 <input type="date" value={date} onChange={e => {
                     setDate(e.target.value)
@@ -60,25 +60,29 @@ const ArticleAddEditForm = (props) => {
                 <input type="text" placeholder="Subtitle" required value={subtitle} onChange={e => {
                     setSubtitle(e.target.value)
                 }}/>
-                {/*<textarea rows="5" placeholder="Article content" required value={content} onChange={e => {*/}
-                {/*    setContent(e.target.value)*/}
-                {/*}}/>*/}
-                <div className="wyswig">
-                    <ReactQuill theme="snow" style={{height: "300px", padding: "0 0 50px 0"}} value={content} onChange={setContent}/>
+
+                <ReactQuill theme="snow" style={{height: "300px", padding: "0 0 50px 0"}} value={content}
+                            onChange={setContent}/>
+
+                <textarea value={content} readOnly/>
+
+                <div className="upload-block">
+                    <input type="text" placeholder="Full image url" required value={fullImgUrl} onChange={e => {
+                        setFullImgUrl(e.target.value)
+                    }}/>
+                    <UploadImage imgSetter={setFullImgUrl}/>
                 </div>
 
-                <textarea value={content}/>
+                <div className="upload-block">
+                    <input type="text" placeholder="Thumb image url" required value={thumbImgUrl} onChange={e => {
+                        setThumbImgUrl(e.target.value)
+                    }}/>
+                    <UploadImage imgSetter={setThumbImgUrl}/>
+                </div>
 
-                <input type="text" placeholder="Full image url" required value={fullImgUrl} onChange={e => {
-                    setFullImgUrl(e.target.value)
-                }}/>
-                <input type="text" placeholder="Thumb image url" required value={thumbImgUrl} onChange={e => {
-                    setThumbImgUrl(e.target.value)
-                }}/>
+                <input type="submit" value="Submit" className="btn__submit" onClick={handleSubmit}/>
 
-                <input type="submit" value="Submit"/>
-
-            </form>
+            </div>
         </>
     );
 };

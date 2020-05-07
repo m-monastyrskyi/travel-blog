@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import ArticleAddEditForm from "./ArticleAddEditForm";
 import {addNewArticle} from "../api/api";
 
@@ -11,7 +11,7 @@ const ArticleAdd = () => {
 
     return (
         <div className="container">
-            <h1>Add article</h1>
+            <h1 className="add-article__title">Add article</h1>
             <ArticleAddEditForm handlePost={addArticle}/>
         </div>
     );

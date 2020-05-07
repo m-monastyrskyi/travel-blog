@@ -64,10 +64,12 @@ const Admin = () => {
                                     {el.title}
                                 </td>
                                 <td className="table__actions">
-                                    <Link to={`/post/${el.id}`}>
+                                    <Link to={`/post/${el.id}`} alt="View article">
                                         <FontAwesomeIcon className="table__icon" icon={faEye}/>
                                     </Link>
-                                    <FontAwesomeIcon className="table__icon" icon={faEdit}/>
+                                    <Link to={`/admin/edit/${el.id}`} alt="View article">
+                                        <FontAwesomeIcon className="table__icon" icon={faEdit}/>
+                                    </Link>
                                     <FontAwesomeIcon className="table__icon" icon={faTrashAlt}
                                                      onClick={() => deleteSinglePost(el.id)}/>
                                 </td>

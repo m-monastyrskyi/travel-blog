@@ -1,0 +1,27 @@
+.article-form {
+  input, textarea, progress {
+    display: block;
+    margin: 10px 0;
+    padding: 5px 10px;
+    width: 100%;
+    border: 1px solid #aeaeae;
+    font-size: 18px;
+    border-radius: 3px;
+
+    &::placeholder {
+      color: #797979;
+    }
+  }
+}
+.upload-block {
+  border: 1px dashed black;
+  border-radius: 5px;
+  margin: 20px 0;
+  padding: 5px;
+}
+.add-article__title {
+  margin: 30px 0;
+  font-size: 32px;
+  font-weight: 600;
+
+}

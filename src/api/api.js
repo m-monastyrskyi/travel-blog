@@ -33,21 +33,43 @@ const addNewArticle = (article) => {
         const ref = fire.database().ref('articles');
 
         ref.on("value", function (snapshot) {
-            //setPosts(snapshot.val());
             tmp = [...snapshot.val(), article];
         }, function (error) {
             console.log("Error: " + error.code);
         });
-        console.log(tmp);
         ref.set(tmp);
+}
 
+const updateSingleArticle = (article) => {
 
+    let tmp = [];
+    const ref = fire.database().ref('articles');
+
+    ref.on("value", function (snapshot) {
+        tmp = [...snapshot.val()];
+    }, function (error) {
+        console.log("Error: " + error.code);
+    });
+    tmp.map(el => {
+        if (el.id === article.id){
+            el.title = article.title;
+            el.subtitle = article.subtitle;
+            el.content = article.content;
+            el.category = article.category;
+            el.datePublished = article.datePublished;
+            el.imageThumb = article.imageThumb;
+            el.imageFull = article.imageFull;
+        }
+    })
+    ref.set(tmp);
 
 }
+
 
 export {
     getRandomNumbersForFooter,
     generateRandomId,
     getSinglePostById,
-    addNewArticle
+    addNewArticle,
+    updateSingleArticle
 }

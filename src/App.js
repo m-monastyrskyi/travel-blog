@@ -34,15 +34,18 @@ function App() {
                             isLoading ? <div className="loading"/> : <Main posts={posts}/>
                         }
                     </Route>
-                    <Route exact path="/contact" component={Contact} />
+                    <Route exact path="/contact" component={Contact}/>
 
                     <Route path="/post/:id">
                         <SinglePost posts={posts}/>
                     </Route>
 
-                    <Route exact path="/admin" component={Admin} />
-                    <Route exact path="/admin/add" component={ArticleAdd} />
-                    <Route path="/admin/edit/:id" component={ArticleEdit}/>
+                    <Route exact path="/admin" component={Admin}/>
+                    <Route exact path="/admin/add" component={ArticleAdd}/>
+
+                    <Route path="/admin/edit/:id">
+                        <ArticleEdit posts={posts}/>
+                    </Route>
 
                     <Route path="*" component={NotFound}/>
                 </Switch>
