@@ -1,17 +1,23 @@
 import React, {useState} from 'react';
-import { useHistory } from "react-router-dom";
+import {checkLogin} from "../api/api";
 
-const LoginForm = ({closeModal}) => {
+const LoginForm = ({closeModal, setUserLogIn}) => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
-    const history = useHistory();
+    const [loginError, setLoginError] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // setLogin('');
-        // setPassword('');
-        history.push("/admin");
-        closeModal();
+
+        if (typeof setUserLogIn === "function") {
+            if (checkLogin(login, password)) {
+                setUserLogIn(true);
+                closeModal();
+            }
+        }
+         setLogin('');
+         setPassword('');
+         setLoginError(true);
     }
 
     const closeIt = (e) => {
@@ -26,6 +32,9 @@ const LoginForm = ({closeModal}) => {
                 <span className="close" onClick={closeModal}/>
                 <h1 className="login-modal__title">LOGIN</h1>
                 <p className="login-modal__hint">Default: admin/admin</p>
+                {
+                    loginError && <p className="login-modal__hint" style={{color: "red"}} >Incorrect email or password</p>
+                }
                 <form onSubmit={e => handleSubmit(e)}>
                     <input
                         className="subscribe__email"
@@ -33,6 +42,7 @@ const LoginForm = ({closeModal}) => {
                         placeholder="Login"
                         value={login}
                         onChange={e => setLogin(e.target.value)}
+                        onFocus={()=> loginError && setLoginError(false) }
                     />
                     <input
                         className="subscribe__email"
@@ -40,6 +50,7 @@ const LoginForm = ({closeModal}) => {
                         placeholder="Password"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
+                        onFocus={()=> loginError && setLoginError(false) }
                     />
                     <input type="submit" className="btn__submit" value="Submit"/>
                 </form>

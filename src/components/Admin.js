@@ -10,15 +10,13 @@ import {faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 import fire from "../data/firebseConfig";
 import backup from "../data/articles"
 import {generateRandomId} from "../api/api";
+import NotFound from "./NotFound";
 
-const Admin = () => {
+const Admin = ({isLoggedIn}) => {
     const [posts, isLoading] = useGetPosts();
-    const history = useHistory();
+    //const history = useHistory();
     document.title = 'Admin';
 
-        useEffect(() => {
-
-    }, [isLoading]);
     if (isLoading) {
         return <div className="loading"/>
     }
@@ -50,6 +48,9 @@ const Admin = () => {
         ref.set(newTab);
     }
 
+    if (!isLoggedIn) {
+        return <NotFound />
+    }
     return (
         <div className="container">
             <table className="table">

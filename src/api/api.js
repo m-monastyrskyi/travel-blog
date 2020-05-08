@@ -65,11 +65,16 @@ const updateSingleArticle = (article) => {
 
 }
 
+const checkLogin = (login, password) => {
+    return login.toLowerCase() === "admin" && password === "admin";
+}
+
 
 export {
     getRandomNumbersForFooter,
     generateRandomId,
     getSinglePostById,
     addNewArticle,
-    updateSingleArticle
+    updateSingleArticle,
+    checkLogin
 }

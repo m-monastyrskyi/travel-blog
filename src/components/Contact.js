@@ -21,7 +21,7 @@ const Contact = () => {
     return (
         <div className='contact container'>
             {
-                sendStatus ? <h1>{sendStatus}</h1> : <>
+                sendStatus ? <h1 className="contact__title">{sendStatus}</h1> : <>
                     <h1 className="contact__title">Contact</h1>
                     <h2 className="contact__subtitle">Drop us a line:</h2>
                     {
@@ -29,11 +29,17 @@ const Contact = () => {
                     }
                     <form className="contact__form" onSubmit={handleSubmit}>
                         <input className="contact__input" type="text" placeholder="Name" value={name}
-                               onChange={e => setName(e.target.value)}/>
+                               onChange={e => setName(e.target.value)}
+                               onFocus={() => errors && setErrors('')}
+                        />
                         <input className="contact__input" type="email" placeholder="Email" value={email}
-                               onChange={e => setEmail(e.target.value)} required/>
+                               onChange={e => setEmail(e.target.value)} required
+                               onFocus={() => errors && setErrors('')}
+                        />
                         <textarea className="contact__input" rows="5" placeholder="Message" value={message}
-                                  onChange={e => setMessage(e.target.value)}/>
+                                  onChange={e => setMessage(e.target.value)}
+                                  onFocus={() => errors && setErrors('')}
+                        />
                         <input className="btn__submit" type="submit" value="SEND"/>
                     </form>
                 </>

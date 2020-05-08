@@ -2,7 +2,7 @@ import React from 'react';
 import logo from "../img/logo.svg";
 import {NavLink} from "react-router-dom";
 
-const Header = ({showModalLogin}) => {
+const Header = ({showModalLogin, isLoggedIn}) => {
 
     const toggleLoginModal = () => {
         if (typeof showModalLogin === 'function') {
@@ -27,9 +27,15 @@ const Header = ({showModalLogin}) => {
                             <li className="nav__item">
                                 <NavLink exact activeClassName="isActive" to="/contact">Contact</NavLink>
                             </li>
-                            <li className="nav__item">
-                                <a href="#" onClick={toggleLoginModal}>Login</a>
-                            </li>
+                            {
+                                isLoggedIn ? <li className="nav__item">
+                                    <NavLink exact activeClassName="isActive" to="/admin">Admin</NavLink>
+                                </li> : <li className="nav__item">
+                                    <a href="#" onClick={toggleLoginModal}>Login</a>
+                                </li>
+                            }
+
+
                         </ul>
                     </nav>
                 </div>

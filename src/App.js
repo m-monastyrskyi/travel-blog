@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter as Router, Switch, Route, Link, NavLink} from 'react-router-dom';
 import './styles/App.scss';
 import Header from "./components/Header";
@@ -23,11 +23,14 @@ function App() {
     const modalLoginSwitch = () => {
         setModalLogin(prev => !prev);
     }
+    const userLoggedInSetter = (loginStatus) => {
+        setIsLoggedIn(loginStatus);
+    }
     return (
 
         <Router>
             <>
-                <Header showModalLogin={modalLoginSwitch}/>
+                <Header showModalLogin={modalLoginSwitch} isLoggedIn={isLoggedIn}/>
                 <Switch>
                     <Route exact path="/">
                         {
@@ -40,11 +43,11 @@ function App() {
                         <SinglePost posts={posts}/>
                     </Route>
 
-                    <Route exact path="/admin" component={Admin}/>
-                    <Route exact path="/admin/add" component={ArticleAdd}/>
+                    <Route exact path="/admin"><Admin isLoggedIn={isLoggedIn}/></Route>
+                    <Route exact path="/admin/add"><ArticleAdd isLoggedIn={isLoggedIn}/></Route>
 
                     <Route path="/admin/edit/:id">
-                        <ArticleEdit posts={posts}/>
+                        <ArticleEdit posts={posts} isLoggedIn={isLoggedIn}/>
                     </Route>
 
                     <Route path="*" component={NotFound}/>
@@ -53,7 +56,7 @@ function App() {
                     !isLoading && <Footer posts={posts}/>
                 }
                 {
-                    modalLogin && <LoginForm closeModal={modalLoginSwitch}/>
+                    modalLogin && <LoginForm closeModal={modalLoginSwitch} setUserLogIn={userLoggedInSetter}/>
                 }
 
             </>
