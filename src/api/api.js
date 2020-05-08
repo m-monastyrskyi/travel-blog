@@ -66,6 +66,7 @@ const updateSingleArticle = (article) => {
 }
 
 const checkLogin = (login, password) => {
+    document.cookie = `admin=${login.toLowerCase() === "admin" && password === "admin"}`;
     return login.toLowerCase() === "admin" && password === "admin";
 }
 

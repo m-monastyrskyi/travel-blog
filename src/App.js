@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router, Switch, Route, Link, NavLink} from 'react-router-dom';
 import './styles/App.scss';
 import Header from "./components/Header";
@@ -19,6 +19,11 @@ function App() {
     const [posts, isLoading] = useGetPosts();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [modalLogin, setModalLogin] = useState(false);
+
+    useEffect(()=>{
+        const tmp = document.cookie;
+        tmp.indexOf("admin=true")>=0 && setIsLoggedIn(true);
+    },[]);
 
     const modalLoginSwitch = () => {
         setModalLogin(prev => !prev);
