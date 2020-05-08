@@ -33,7 +33,7 @@ const addNewArticle = (article) => {
         const ref = fire.database().ref('articles');
 
         ref.on("value", function (snapshot) {
-            tmp = [...snapshot.val(), article];
+            tmp = [article,...snapshot.val()];
         }, function (error) {
             console.log("Error: " + error.code);
         });

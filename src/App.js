@@ -20,10 +20,10 @@ function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [modalLogin, setModalLogin] = useState(false);
 
-    useEffect(()=>{
+    useEffect(() => {
         const tmp = document.cookie;
-        tmp.indexOf("admin=true")>=0 && setIsLoggedIn(true);
-    },[]);
+        tmp.indexOf("admin=true") >= 0 && setIsLoggedIn(true);
+    }, []);
 
     const modalLoginSwitch = () => {
         setModalLogin(prev => !prev);
@@ -48,7 +48,8 @@ function App() {
                         <SinglePost posts={posts}/>
                     </Route>
 
-                    <Route exact path="/admin"><Admin isLoggedIn={isLoggedIn} setUserLogIn={userLoggedInSetter}/></Route>
+                    <Route exact path="/admin"><Admin isLoggedIn={isLoggedIn}
+                                                      setUserLogIn={userLoggedInSetter}/></Route>
                     <Route exact path="/admin/add"><ArticleAdd isLoggedIn={isLoggedIn}/></Route>
 
                     <Route path="/admin/edit/:id">
