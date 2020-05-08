@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react';
 import ArticleAddEditForm from "./ArticleAddEditForm";
 import {useRouteMatch} from "react-router-dom";
 import {getSinglePostById, updateSingleArticle} from "../api/api";
+import NotFound from "./NotFound";
 
-const ArticleEdit = ({posts}) => {
+const ArticleEdit = ({posts, isLoggedIn}) => {
     const id = useRouteMatch("/admin/edit/:id").params.id;
     const [article, setArticle] = useState(null);
     document.title='Edit article';
@@ -15,6 +16,9 @@ const ArticleEdit = ({posts}) => {
     const updateArticle = (post) => {
         console.log(post);
         updateSingleArticle(post);
+    }
+    if (!isLoggedIn) {
+        return <NotFound />
     }
 
     if (posts.length === 0) {
