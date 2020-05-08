@@ -1,5 +1,5 @@
 .article-form {
-  input, textarea, progress {
+  input, textarea {
     display: block;
     margin: 10px 0;
     padding: 5px 10px;
@@ -11,6 +11,10 @@
     &::placeholder {
       color: #797979;
     }
+  }
+  progress {
+    width: 100%;
+    height: 2em;
   }
 }
 .upload-block {
