@@ -45,7 +45,7 @@
   background-color: #eaeaea;
   border-radius: 5px;
   border: 1px solid #757577;
-    margin: 20px 0;
+  margin: 20px 10px 20px 0;
   text-decoration: none;
   color: black;
   cursor: pointer;
@@ -57,9 +57,10 @@
   }
 
 }
-.went-wrong {
-  display: block;
-  span {
-    margin: 10px;
-  }
+
+.admin-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }

@@ -48,7 +48,7 @@ function App() {
                         <SinglePost posts={posts}/>
                     </Route>
 
-                    <Route exact path="/admin"><Admin isLoggedIn={isLoggedIn}/></Route>
+                    <Route exact path="/admin"><Admin isLoggedIn={isLoggedIn} setUserLogIn={userLoggedInSetter}/></Route>
                     <Route exact path="/admin/add"><ArticleAdd isLoggedIn={isLoggedIn}/></Route>
 
                     <Route path="/admin/edit/:id">

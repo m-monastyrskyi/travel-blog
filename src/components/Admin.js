@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import useGetPosts from "../hooks/useGetPosts";
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEye} from '@fortawesome/free-solid-svg-icons'
@@ -12,9 +12,8 @@ import backup from "../data/articles"
 import {generateRandomId} from "../api/api";
 import NotFound from "./NotFound";
 
-const Admin = ({isLoggedIn}) => {
+const Admin = ({isLoggedIn, setUserLogIn}) => {
     const [posts, isLoading] = useGetPosts();
-    //const history = useHistory();
     document.title = 'Admin';
 
     if (isLoading) {
@@ -49,7 +48,7 @@ const Admin = ({isLoggedIn}) => {
     }
 
     if (!isLoggedIn) {
-        return <NotFound />
+        return <NotFound/>
     }
     return (
         <div className="container">
@@ -81,12 +80,26 @@ const Admin = ({isLoggedIn}) => {
                 }
                 </tbody>
             </table>
-            <Link className="add-article__btn" to="/admin/add">Add article</Link>
-            <div className="went-wrong">
-                <span>Something went wrong? Restore articles from backup</span>
+
+            <div className="admin-btns">
+                <div className="admin-btns__main">
+                <Link className="add-article__btn" to="/admin/add">Add article</Link>
+
+                <Link className="add-article__btn" to='/'
+                      onClick={() => {
+                          document.cookie = 'admin=false';
+                          setUserLogIn(false);
+                      }}
+                > Logout?</Link>
+                </div>
+
+
                 <button className="add-article__btn" onClick={btnRestore}>Restore from backup</button>
             </div>
+
+
             {/*<button style={{padding: "5px 20px", margin: "20px"}} onClick={btnAddTestArticle}>Test add article</button>*/}
+
         </div>
     );
 
