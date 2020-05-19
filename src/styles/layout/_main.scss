@@ -5,8 +5,8 @@
 
 .article__wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 30%); /* 2 */
-  grid-gap: 30px; /* 3 */
+  grid-template-columns: repeat(auto-fill, 30%);
+  grid-gap: 30px;
   justify-content: space-between;
   //flex-wrap: wrap;
   //flex-direction: row;
